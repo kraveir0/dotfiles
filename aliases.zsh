@@ -19,6 +19,7 @@ alias sites="cd $HOME/dev"
 alias a="php artisan"
 alias fresh="php artisan migrate:fresh --seed"
 alias seed="php artisan db:seed"
+alias sail="./vendor/bin/sail"
 
 # PHP
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
