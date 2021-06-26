@@ -1,16 +1,18 @@
+[krav.dev](https://krav.dev) .dotfiles
+
 [Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
 
    ```zsh
    curl https://raw.githubusercontent.com/kraveir0/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
    ```
 
-3. Clone this repo to `~/.dotfiles` with:
+Clone this repo to `~/.dotfiles` with:
 
     ```zsh
     git clone git@github.com:kraveir0/dotfiles.git ~/.dotfiles
     ```
 
-4. Run the installation with:
+Run the installation with:
 
     ```zsh
     ~/.dotfiles/install.sh
