@@ -1,4 +1,6 @@
-[krav.dev](https://krav.dev) .dotfiles
+[krav.dev](https://krav.dev) .dotfile
+
+Forked from [driesvints own dotfiles](https://github.com/driesvints/dotfiles). Go check him out!
 
 [Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
 
