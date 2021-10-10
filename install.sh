@@ -58,6 +58,7 @@ brew install 'nginx'
 brew install 'node'
 brew install 'redis'
 brew install 'yarn'
+brew install 'brew-php-switcher'
 
 
 # Install global Composer packages
