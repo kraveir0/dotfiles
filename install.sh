@@ -19,8 +19,6 @@ fi
 # Install requirements
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xclip xsel
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
 # Update Homebrew recipes
 brew update
 
@@ -73,3 +71,4 @@ mkdir $HOME/dev
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
