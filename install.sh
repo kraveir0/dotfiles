@@ -10,10 +10,16 @@ fi
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/krav/.zprofile
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  sudo DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential
+  brew install gcc
 fi
 
-
+# Install requirements
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xclip xsel
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Update Homebrew recipes
 brew update
@@ -28,13 +34,7 @@ brew install 'grep'
 brew install 'httpie'
 brew install 'hub'
 brew install 'tmux'
-# brew install 'mackup'
-# brew install 'mas' # Mac App Store manager
 brew install 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-# brew install 'stripe/stripe-cli/stripe'
-# brew install 'svn'
-# brew install 'trash' # Manage the Trash bin
-# brew install 'tree' # List directories in a tree structure
 brew install 'zlib' # Needed for Memcached
 
 # Spatie Medialibrary
@@ -64,15 +64,10 @@ brew install 'yarn'
 composer global require laravel/installer beyondcode/expose tightenco/takeout
 
 # Create a Sites directory
-# mkdir $HOME/dev
-
-# Create sites subdirectories
-# mkdir $HOME/Sites/blade-ui-kit
-# mkdir $HOME/Sites/eventsauce
-# mkdir $HOME/Sites/laravel
+mkdir $HOME/dev
 
 # Clone Github repositories
-# ./clone.sh
+./clone.sh
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
