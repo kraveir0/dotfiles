@@ -18,5 +18,6 @@ echo "Host *\n AddKeysToAgent yes\n IdentityFile ~/.ssh/id_ed25519" | tee ~/.ssh
 ssh-add -K ~/.ssh/id_ed25519
 
 # Adding your SSH key to your GitHub account
+cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
 # https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
-echo "run 'cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard' and add it into GitHub SSH keys"
+echo "Paste clipboard into GitHub SSH keys"
