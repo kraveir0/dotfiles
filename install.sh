@@ -10,7 +10,7 @@ fi
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/krav/.zprofile
+  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>/home/krav/.zprofile
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   sudo DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential
   brew install gcc
@@ -19,13 +19,16 @@ fi
 # Install requirements
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xclip xsel
 
+if test ! $(which docker); then
+  /bin/sh -c "$(curl -fsSL https://get.docker.com -o get-docker.sh)"
+  /bin/sh -c "$(sudo sh get-docker.sh)"
+  sudo usermod -aG docker $USER
+fi
 
-/bin/sh -c "$(curl -fsSL https://get.docker.com -o get-docker.sh)"
-/bin/sh -c "$(curl -fsSL get-docker.sh)"
-sudo usermod -aG docker $USER
-
+if test ! $(which docker-compose); then
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+fi
 
 # Update Homebrew recipes
 brew update
@@ -41,7 +44,7 @@ brew install 'httpie'
 brew install 'hub'
 brew install 'tmux'
 brew install 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-brew install 'zlib' # Needed for Memcached
+brew install 'zlib'       # Needed for Memcached
 
 # Spatie Medialibrary
 brew install 'jpegoptim'
@@ -53,7 +56,7 @@ brew install 'gifsicle'
 # Development
 brew install 'php'
 brew install 'php@7.4'
-brew install 'php@7.3'
+# brew install 'php@7.3'
 brew install 'composer'
 brew install 'imagemagick'
 brew install 'libmemcached'
@@ -65,7 +68,6 @@ brew install 'node'
 brew install 'redis'
 brew install 'yarn'
 brew install 'brew-php-switcher'
-
 
 # Install global Composer packages
 composer global require laravel/installer beyondcode/expose tightenco/takeout
