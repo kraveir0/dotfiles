@@ -106,3 +106,5 @@ export LANG=en_US.UTF-8
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+alias homevpn="sudo wg-quick up homevpn"
